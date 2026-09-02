@@ -1,5 +1,6 @@
 import { getCollectionsGrouped } from '../data/products';
 import ImageSlot from '../components/ImageSlot';
+import { asset } from '../lib/asset';
 
 export default function Weavers() {
   const collectionsGrouped = getCollectionsGrouped();
@@ -20,7 +21,7 @@ export default function Weavers() {
           </p>
         </div>
         <div style={{ position: 'relative', background: 'var(--surface-2)' }}>
-          <ImageSlot src="/images/weavers-hero.jpg" alt="Artisan at the loom, Kanchipuram workshop" />
+          <ImageSlot src={asset('/images/weavers-hero.jpg')} alt="Artisan at the loom, Kanchipuram workshop" />
         </div>
       </section>
       <section style={{ display: 'flex', flexDirection: 'column', gap: 32, padding: '0 64px 80px' }}>

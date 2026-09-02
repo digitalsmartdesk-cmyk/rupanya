@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { EDIT_END, getFeatured } from '../data/products';
 import ImageSlot from '../components/ImageSlot';
 import useCountdown from '../hooks/useCountdown';
+import { asset } from '../lib/asset';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -96,7 +97,7 @@ export default function Home() {
           </div>
         </div>
         <div style={{ position: 'relative', background: 'var(--surface-2)' }}>
-          <ImageSlot src="/images/hero-main.jpg" alt="Model draped in flagship Kanjivaram saree, editorial lighting" />
+          <ImageSlot src={asset('/images/hero-main.jpg')} alt="Model draped in flagship Kanjivaram saree, editorial lighting" />
         </div>
       </section>
 

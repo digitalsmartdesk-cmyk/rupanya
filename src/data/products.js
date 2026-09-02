@@ -1,3 +1,5 @@
+import { asset } from '../lib/asset';
+
 export const EDIT_START = new Date(2026, 7, 3); // Aug 3, 2026
 export const EDIT_END = new Date(EDIT_START.getTime() + 60 * 86400000); // 60-day edit window
 
@@ -8,7 +10,7 @@ export const COLLECTIONS = [
     fabric: 'Kanjivaram Silk',
     weave: 'Temple border weave',
     loom: 'Kanchipuram',
-    loomImg: '/images/loom-kanchi-reserve.jpg',
+    loomImg: asset('/images/loom-kanchi-reserve.jpg'),
     names: ['Rajkumari', 'Ashtalakshmi', 'Kalyani', 'Meenakari', 'Padmavati', 'Shringara', 'Vaishnavi', 'Tanjore'],
   },
   {
@@ -17,7 +19,7 @@ export const COLLECTIONS = [
     fabric: 'Banarasi Silk',
     weave: 'Jamdani hand-weave',
     loom: 'Varanasi',
-    loomImg: '/images/loom-banaras-noir.jpg',
+    loomImg: asset('/images/loom-banaras-noir.jpg'),
     names: ['Meherangi', 'Zeenat', 'Shabnam', 'Rukhsar', 'Anarkali', 'Farheen', 'Gulnaz', 'Nazneen'],
   },
   {
@@ -26,7 +28,7 @@ export const COLLECTIONS = [
     fabric: 'Chanderi Silk-Cotton',
     weave: 'Sheer tissue weave',
     loom: 'Chanderi',
-    loomImg: '/images/loom-chanderi-air.jpg',
+    loomImg: asset('/images/loom-chanderi-air.jpg'),
     names: ['Aditri', 'Sohini', 'Vasundhara', 'Saral', 'Kirti', 'Ishani', 'Lavanya', 'Aranya'],
   },
   {
@@ -35,7 +37,7 @@ export const COLLECTIONS = [
     fabric: 'Patola Silk',
     weave: 'Ikat double-weave',
     loom: 'Patan',
-    loomImg: '/images/loom-ikat-folio.jpg',
+    loomImg: asset('/images/loom-ikat-folio.jpg'),
     names: ['Vintara', 'Chitrali', 'Rekha', 'Bindiya', 'Charuta', 'Mayura', 'Kanak', 'Ankita'],
   },
   {
@@ -44,7 +46,7 @@ export const COLLECTIONS = [
     fabric: 'Mysore Silk',
     weave: 'Zari brocade',
     loom: 'Mysore',
-    loomImg: '/images/loom-tissue-gold.jpg',
+    loomImg: asset('/images/loom-tissue-gold.jpg'),
     names: ['Anushka', 'Rukmini', 'Devika', 'Sharanya', 'Kaveri', 'Nandini', 'Malini', 'Shantala'],
   },
 ];
@@ -91,7 +93,7 @@ function buildProducts() {
         priceLabel: '₹' + price.toLocaleString('en-IN'),
         stock,
         lowStock: stock <= 3,
-        imgSrc: `/images/${COLORWAY_SLUGS[colorway]}.jpg`,
+        imgSrc: asset(`/images/${COLORWAY_SLUGS[colorway]}.jpg`),
         description: `Handwoven on traditional pit looms in ${coll.loom}, this ${coll.fabric.toLowerCase()} saree features a ${coll.weave.toLowerCase()} in ${colorway.toLowerCase()} tones. Part of the ${coll.name} line — only 10 pieces of this design are woven this edit; once sold, it will not be rewoven until ${coll.name} returns in a future edit.`,
         weaverStory: `Woven over 18 days by master artisan families in ${coll.loom}, continuing a technique passed down four generations. Your purchase directly supports the loom collective behind this piece.`,
       });
