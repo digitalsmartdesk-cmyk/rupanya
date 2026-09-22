@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy all brand storefronts
 
 on:
   push:
@@ -24,12 +24,25 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - run: npm run build
+      - run: npm run build:all
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: dist/rupanya
+      - uses: actions/upload-artifact@v4
+        with:
+          name: navsaaj-dist
+          path: dist/navsaaj
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lalitya-dist
+          path: dist/lalitya
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blush-layers-dist
+          path: dist/blush-layers
 
-  deploy:
+  # Rupanya deploys in-repo via native GitHub Pages (this repo's own Pages site).
+  deploy-rupanya:
     needs: build
     runs-on: ubuntu-latest
     environment:
@@ -38,3 +51,61 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Navsaaj, Lalitya and Blush Layers each live in their own repo purely as a
+  # static Pages host (a "deploy target") — their content is pushed here from
+  # this build, never hand-edited in place. This requires a repository secret
+  # CROSS_REPO_PAT: a GitHub personal access token with contents:write (or
+  # classic "repo" scope) on the digitalsmartdesk-cmyk/navsaaj, .../lalitya
+  # and .../blushlayers repos. Add it under
+  # Settings → Secrets and variables → Actions → New repository secret.
+  deploy-navsaaj:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: navsaaj-dist
+          path: dist
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.CROSS_REPO_PAT }}
+          external_repository: digitalsmartdesk-cmyk/navsaaj
+          publish_branch: main
+          publish_dir: dist
+          force_orphan: true
+          commit_message: "Deploy Navsaaj from aaranya@${{ github.sha }}"
+
+  deploy-lalitya:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: lalitya-dist
+          path: dist
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.CROSS_REPO_PAT }}
+          external_repository: digitalsmartdesk-cmyk/lalitya
+          publish_branch: main
+          publish_dir: dist
+          force_orphan: true
+          commit_message: "Deploy Lalitya from aaranya@${{ github.sha }}"
+
+  deploy-blush-layers:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: blush-layers-dist
+          path: dist
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.CROSS_REPO_PAT }}
+          external_repository: digitalsmartdesk-cmyk/blushlayers
+          publish_branch: main
+          publish_dir: dist
+          force_orphan: true
+          commit_message: "Deploy Blush Layers from aaranya@${{ github.sha }}"

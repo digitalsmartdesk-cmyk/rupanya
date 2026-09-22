@@ -1,0 +1,21 @@
+:root {
+  --bg: oklch(97% 0.012 350);
+  --surface: oklch(99% 0.005 350);
+  --surface-2: oklch(91% 0.022 350);
+  --border: oklch(90% 0.020 350);
+  --border-strong: oklch(80% 0.020 340);
+  --input-border: oklch(85% 0.020 340);
+  --text: oklch(16% 0.020 340);
+  --text-body: oklch(32% 0.018 340);
+  --text-muted: oklch(44% 0.018 340);
+  --text-muted-2: oklch(40% 0.018 340);
+  --text-faint: oklch(52% 0.015 340);
+  --accent: oklch(38% 0.18 340);
+  --accent-hover: oklch(30% 0.18 340);
+  --lowstock-bg: oklch(94% 0.040 350);
+  --selection: oklch(88% 0.06 340);
+  --body-font: 'DM Sans', sans-serif;
+
+  font-family: var(--body-font);
+  color-scheme: light;
+}
