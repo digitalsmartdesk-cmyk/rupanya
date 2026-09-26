@@ -37,10 +37,10 @@ export const brand = {
     heroEyebrow: 'The 2026 Winter Edit',
     heroHeadline: ['Forty sarees.', 'Sixty days.', 'Then, gone.'],
     heroBody:
-      'Each edit is woven by hand across our partner looms in Kanchipuram, Banaras and Chanderi — forty designs, individually numbered, never rewoven once the collection closes.',
+      'Each edit is handcrafted across our partner ateliers in Surat, Chanderi, Maheshwar, Varanasi and Mysore — forty designs, individually numbered, never remade once the collection closes.',
     heroCtaPrimary: 'View The 40 Designs',
     heroCtaSecondary: 'Our Weaving Story',
-    heroPlaceholder: 'Hero photo — model draped in flagship Kanjivaram, editorial lighting',
+    heroPlaceholder: 'Hero photo — model draped in a flagship saree, editorial lighting',
     countdownSuffix: 'until this edit closes for good',
 
     sectionTwoTitle: 'Why only forty',
@@ -101,7 +101,7 @@ export const brand = {
     makersHeadline: ['Five looms.', 'One promise.'],
     makersBody:
       'Every Rupanya edit is woven by five partner loom collectives, each behind one of our ongoing lines. We commission by hand, pay above market rate, and never rush a design to meet a deadline.',
-    makersHeroPlaceholder: 'Photo — artisan at the loom, Kanchipuram workshop',
+    makersHeroPlaceholder: 'Photo — artisan at work, partner atelier',
     makersRowSuffix: 'An ongoing line, revisited with eight new designs in every edit.',
 
     footerTagline: 'Woven in India',
