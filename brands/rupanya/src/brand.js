@@ -40,7 +40,7 @@ export const brand = {
       'Each edit is handcrafted across our partner ateliers in Surat, Chanderi, Maheshwar, Varanasi and Mysore — forty designs, individually numbered, never remade once the collection closes.',
     heroCtaPrimary: 'View The 40 Designs',
     heroCtaSecondary: 'Our Weaving Story',
-    heroPlaceholder: 'Hero photo — model draped in a flagship saree, editorial lighting',
+    heroPlaceholder: 'Model draped in an ivory saree with gold zari embroidery, palace interior',
     countdownSuffix: 'until this edit closes for good',
 
     sectionTwoTitle: 'Why only forty',
