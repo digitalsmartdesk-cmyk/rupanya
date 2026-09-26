@@ -52,18 +52,6 @@ export const COLLECTIONS = [
 ];
 
 const COLORWAYS = ['Deep Maroon', 'Antique Gold', 'Emerald', 'Midnight Indigo', 'Ivory & Rose', 'Rust & Copper', 'Sapphire', 'Wine', 'Peacock Teal', 'Sandalwood'];
-const COLORWAY_SLUGS = {
-  'Deep Maroon': 'deep-maroon',
-  'Antique Gold': 'antique-gold',
-  Emerald: 'emerald',
-  'Midnight Indigo': 'midnight-indigo',
-  'Ivory & Rose': 'ivory-rose',
-  'Rust & Copper': 'rust-copper',
-  Sapphire: 'sapphire',
-  Wine: 'wine',
-  'Peacock Teal': 'peacock-teal',
-  Sandalwood: 'sandalwood',
-};
 
 function buildProducts() {
   const list = [];
@@ -93,7 +81,7 @@ function buildProducts() {
         priceLabel: '₹' + price.toLocaleString('en-IN'),
         stock,
         lowStock: stock <= 3,
-        imgSrc: asset(`/images/${COLORWAY_SLUGS[colorway]}.jpg`),
+        imgSrc: asset(`/images/products/${String(i).padStart(2, '0')}.jpg`),
         description: `Handwoven on traditional pit looms in ${coll.origin}, this ${coll.fabric.toLowerCase()} saree features a ${coll.weave.toLowerCase()} in ${colorway.toLowerCase()} tones. Part of the ${coll.name} line — only 10 pieces of this design are woven this edit; once sold, it will not be rewoven until ${coll.name} returns in a future edit.`,
         story: `Woven over 18 days by master artisan families in ${coll.origin}, continuing a technique passed down four generations. Your purchase directly supports the loom collective behind this piece.`,
         specs: [
