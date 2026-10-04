@@ -57,18 +57,54 @@ export const COLLECTIONS = [
 ];
 
 const COLORWAYS = ['Blush Petal', 'Ivory Cream', 'Midnight Black', 'Dusty Rose', 'Champagne', 'Deep Plum', 'Ash Mauve', 'Pearl White', 'Noir Stripe', 'Antique Ivory'];
-const COLORWAY_SLUGS = {
-  'Blush Petal': 'ivory-rose',
-  'Ivory Cream': 'antique-gold',
-  'Midnight Black': 'deep-maroon',
-  'Dusty Rose': 'ivory-rose',
-  Champagne: 'antique-gold',
-  'Deep Plum': 'deep-maroon',
-  'Ash Mauve': 'sandalwood',
-  'Pearl White': 'antique-gold',
-  'Noir Stripe': 'deep-maroon',
-  'Antique Ivory': 'sandalwood',
-};
+
+const PRODUCT_IMAGES = [
+  // Bare Silk 01–08
+  asset('/uploads/lite-blushlayers/Cotton/BLUSH_LAYERS_01_Cotton_Ivory.jpg'),
+  asset('/uploads/lite-blushlayers/Cotton/BLUSH_LAYERS_02_Cotton_Blush_Pink.jpg'),
+  asset('/uploads/lite-blushlayers/Cotton/BLUSH_LAYERS_03_Cotton_Sky_Blue.jpg'),
+  asset('/uploads/lite-blushlayers/Cotton/BLUSH_LAYERS_04_Cotton_Sage_Green.jpg'),
+  asset('/uploads/lite-blushlayers/Cotton/BLUSH_LAYERS_05_Cotton_Warm_Yellow.jpg'),
+  asset('/uploads/lite-blushlayers/Cotton/BLUSH_LAYERS_06_Cotton_Powder_Blue.jpg'),
+  asset('/uploads/lite-blushlayers/Cotton/BLUSH_LAYERS_07_Cotton_Rose_Beige.jpg'),
+  asset('/uploads/lite-blushlayers/Cotton/BLUSH_LAYERS_08_Cotton_Terracotta.jpg'),
+  // Lace Noir 09–16
+  asset('/uploads/lite-blushlayers/Charmeuse Satin/BLUSH_LAYERS_09_Charmeuse_Satin_Champagne.jpg'),
+  asset('/uploads/lite-blushlayers/Charmeuse Satin/BLUSH_LAYERS_10_Charmeuse_Satin_Blush_Rose.jpg'),
+  asset('/uploads/lite-blushlayers/Charmeuse Satin/BLUSH_LAYERS_11_Charmeuse_Satin_Deep_Emerald.jpg'),
+  asset('/uploads/lite-blushlayers/Charmeuse Satin/BLUSH_LAYERS_12_Charmeuse_Satin_Midnight_Blue.jpg'),
+  asset('/uploads/lite-blushlayers/Charmeuse Satin/BLUSH_LAYERS_13_Charmeuse_Satin_Ivory_Pearl.jpg'),
+  asset('/uploads/lite-blushlayers/Charmeuse Satin/BLUSH_LAYERS_14_Charmeuse_Satin_Burgundy.jpg'),
+  asset('/uploads/lite-blushlayers/Charmeuse Satin/BLUSH_LAYERS_15_Charmeuse_Satin_Lavender.jpg'),
+  asset('/uploads/lite-blushlayers/Charmeuse Satin/BLUSH_LAYERS_16_Charmeuse_Satin_Terracotta_Rose.jpg'),
+  // Whisper Satin 17–24
+  asset('/uploads/lite-blushlayers/Tulle/BLUSH_LAYERS_17_Tulle_Ivory_Blush.jpg'),
+  asset('/uploads/lite-blushlayers/Tulle/BLUSH_LAYERS_18_Tulle_Dusty_Rose.jpg'),
+  asset('/uploads/lite-blushlayers/Tulle/BLUSH_LAYERS_19_Tulle_Powder_Blue.jpg'),
+  asset('/uploads/lite-blushlayers/Tulle/BLUSH_LAYERS_20_Tulle_Sage.jpg'),
+  asset('/uploads/lite-blushlayers/Tulle/BLUSH_LAYERS_21_Tulle_Champagne.jpg'),
+  asset('/uploads/lite-blushlayers/Tulle/BLUSH_LAYERS_22_Tulle_Black.jpg'),
+  asset('/uploads/lite-blushlayers/Tulle/BLUSH_LAYERS_23_Tulle_Lilac.jpg'),
+  asset('/uploads/lite-blushlayers/Tulle/BLUSH_LAYERS_24_Tulle_Burgundy.jpg'),
+  // Boudoir Bloom 25–32
+  asset('/uploads/lite-blushlayers/Mesh & Lace/BLUSH_LAYERS_25_Mesh_Lace_Ivory.jpg'),
+  asset('/uploads/lite-blushlayers/Mesh & Lace/BLUSH_LAYERS_26_Mesh_Lace_Blush.jpg'),
+  asset('/uploads/lite-blushlayers/Mesh & Lace/BLUSH_LAYERS_27_Mesh_Lace_Dusty_Rose.jpg'),
+  asset('/uploads/lite-blushlayers/Mesh & Lace/BLUSH_LAYERS_28_Mesh_Lace_Lavender.jpg'),
+  asset('/uploads/lite-blushlayers/Mesh & Lace/BLUSH_LAYERS_29_Mesh_Lace_Sage.jpg'),
+  asset('/uploads/lite-blushlayers/Mesh & Lace/BLUSH_LAYERS_30_Mesh_Lace_Champagne.jpg'),
+  asset('/uploads/lite-blushlayers/Mesh & Lace/BLUSH_LAYERS_31_Mesh_Lace_Burgundy.jpg'),
+  asset('/uploads/lite-blushlayers/Mesh & Lace/BLUSH_LAYERS_32_Mesh_Lace_Midnight_Blue.jpg'),
+  // Velvet Dusk 33–40
+  asset('/uploads/lite-blushlayers/Voile/BLUSH_LAYERS_33_Voile_Ivory.jpg'),
+  asset('/uploads/lite-blushlayers/Voile/BLUSH_LAYERS_34_Voile_Powder_Pink.jpg'),
+  asset('/uploads/lite-blushlayers/Voile/BLUSH_LAYERS_35_Voile_Powder_Blue.jpg'),
+  asset('/uploads/lite-blushlayers/Voile/BLUSH_LAYERS_36_Voile_Lavender.jpg'),
+  asset('/uploads/lite-blushlayers/Voile/BLUSH_LAYERS_37_Voile_Sage.jpg'),
+  asset('/uploads/lite-blushlayers/Voile/BLUSH_LAYERS_38_Voile_Dusty_Rose.jpg'),
+  asset('/uploads/lite-blushlayers/Voile/BLUSH_LAYERS_39_Voile_Deep_Navy.jpg'),
+  asset('/uploads/lite-blushlayers/Voile/BLUSH_LAYERS_40_Voile_Burgundy.jpg'),
+];
 
 function buildProducts() {
   const list = [];
@@ -97,7 +133,7 @@ function buildProducts() {
         priceLabel: '₹' + price.toLocaleString('en-IN'),
         stock,
         lowStock: stock <= 3,
-        imgSrc: asset(`/images/${COLORWAY_SLUGS[colorway]}.jpg`),
+        imgSrc: PRODUCT_IMAGES[i - 1],
         description: `Hand-finished in ${coll.origin}, this ${coll.fabric.toLowerCase()} piece is numbered ${j} of 8 in the ${coll.name} line. ${coll.finish} — made once, in ${colorway.toLowerCase()}, never remade in this colorway once the edition closes.`,
         story: `Every piece in ${coll.name} is hand-finished by a single maker in our ${coll.origin} atelier. The ${coll.finish.toLowerCase()} is done at the very end, by hand, before the numbered ribbon is attached and the piece is sealed in its dust bag.`,
         specs: [
